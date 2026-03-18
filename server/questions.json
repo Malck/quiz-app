@@ -1,0 +1,94 @@
+{
+  "categories": [
+    {
+      "nom": "Personnalités", "type": "devinette", "description": "Devinez la réponse de l'autre !",
+      "questions": [
+        {"question": "Ma couleur préférée est :", "reponses": ["Bleu", "Vert", "Rouge"]},
+        {"question": "Pour des vacances idéales, je suis plutôt :", "reponses": ["Plage et soleil", "Montagne et randonnée", "Ville et culture"]},
+        {"question": "Mon talent artistique secret serait :", "reponses": ["Le dessin", "La musique", "La danse"]},
+        {"question": "Si je pouvais avoir un super-pouvoir, ce serait :", "reponses": ["Voler", "L'invisibilité", "La téléportation"]},
+        {"question": "Le matin, je suis plutôt :", "reponses": ["Café", "Thé", "Jus de fruits"]},
+        {"question": "Mon animal totem serait :", "reponses": ["Un loup", "Un aigle", "Un chat"]},
+        {"question": "Mon plaisir coupable en musique est :", "reponses": ["La pop des années 90", "Le rock classique", "Le rap français"]},
+        {"question": "En cas de dispute, ma réaction première est :", "reponses": ["Discuter calmement", "Avoir besoin d'espace", "Rire pour détendre l'atmosphère"]},
+        {"question": "Le cadeau qui me ferait le plus plaisir est :", "reponses": ["Un voyage", "Un objet high-tech", "Quelque chose de fait main"]},
+        {"question": "Ma plus grande peur est :", "reponses": ["Les araignées", "L'échec", "Les hauteurs"]}
+      ]
+    },
+    {
+      "nom": "Habitudes", "type": "devinette", "description": "Devinez la réponse de l'autre !",
+      "questions": [
+        {"question": "Quand je regarde un film, je suis du genre à :", "reponses": ["Manger du popcorn", "Commenter tout le film", "Pleurer facilement"]},
+        {"question": "Mon plat 'réconfort' par excellence est :", "reponses": ["Une pizza", "Des pâtes", "Un burger"]},
+        {"question": "La première chose que je fais en rentrant du travail est :", "reponses": ["Me mettre à l'aise", "Manger quelque chose", "Raconter ma journée"]},
+        {"question": "Mon style vestimentaire est plutôt :", "reponses": ["Décontracté", "Chic", "Sportswear"]},
+        {"question": "Le réseau social que j'utilise le plus est :", "reponses": ["Instagram", "TikTok", "X (Twitter)"]},
+        {"question": "Pour me détendre, je préfère :", "reponses": ["Lire un livre", "Jouer aux jeux vidéo", "Regarder une série"]},
+        {"question": "Ma saison préférée est :", "reponses": ["L'été", "L'automne", "Le printemps"]},
+        {"question": "Je suis plutôt du genre :", "reponses": ["Couché tard, levé tard", "Couché tôt, levé tôt", "Ça dépend des jours"]},
+        {"question": "Quand je suis contrarié(e), je :", "reponses": ["Le montre tout de suite", "Le garde pour moi", "Fais du sport pour décompresser"]},
+        {"question": "Mon petit déjeuner typique est :", "reponses": ["Sucré", "Salé", "Je ne déjeune pas"]}
+      ]
+    },
+    {
+      "nom": "Préférences", "type": "devinette", "description": "Devinez la réponse de l'autre !",
+      "questions": [
+        {"question": "Mon genre de musique préféré est :", "reponses": ["Rock", "Pop", "Electro"]},
+        {"question": "Si je devais choisir une seule cuisine pour le reste de ma vie :", "reponses": ["Italienne", "Japonaise", "Française"]},
+        {"question": "Le type de vacances que je préfère est :", "reponses": ["Aventure", "Farniente", "Culturel"]},
+        {"question": "Mon genre de film préféré est :", "reponses": ["Science-Fiction", "Comédie", "Thriller"]},
+        {"question": "Je préfère les chiens ou les chats ?", "reponses": ["Les chiens", "Les chats", "Les deux"]},
+        {"question": "Ma boisson préférée en soirée est :", "reponses": ["Un cocktail", "Du vin", "Une bière"]},
+        {"question": "Je suis plus à l'aise :", "reponses": ["En petit comité", "Dans une grande fête", "Seul(e)"]},
+        {"question": "Mon sport favori à regarder est :", "reponses": ["Le football", "Le tennis", "Le basketball"]},
+        {"question": "Pour un rendez-vous, je préfère :", "reponses": ["Un restaurant chic", "Un pique-nique simple", "Une activité fun"]},
+        {"question": "La voiture de mes rêves serait :", "reponses": ["Une sportive", "Un van aménagé", "Une voiture de collection"]}
+      ]
+    },
+    {
+      "nom": "Culture Pop", "type": "classique", "description": "Trouvez la bonne réponse.",
+      "questions": [
+        {"question": "Quel acteur incarne le personnage de Tony Stark (Iron Man) ?", "reponses": ["Chris Evans", "Robert Downey Jr.", "Chris Hemsworth"], "bonneReponse": "Robert Downey Jr."},
+        {"question": "Dans 'Star Wars', qui est le père de Luke Skywalker ?", "reponses": ["Obi-Wan Kenobi", "L'Empereur Palpatine", "Dark Vador"], "bonneReponse": "Dark Vador"},
+        {"question": "Quelle série met en scène des dragons et une lutte pour le Trône de Fer ?", "reponses": ["The Witcher", "Game of Thrones", "Le Seigneur des Anneaux"], "bonneReponse": "Game of Thrones"},
+        {"question": "Quel est le nom du sorcier à la cicatrice en forme d'éclair ?", "reponses": ["Ron Weasley", "Drago Malefoy", "Harry Potter"], "bonneReponse": "Harry Potter"},
+        {"question": "Quel groupe a popularisé la chanson 'Smells Like Teen Spirit' ?", "reponses": ["Pearl Jam", "Nirvana", "Soundgarden"], "bonneReponse": "Nirvana"},
+        {"question": "Qui a réalisé le film 'Pulp Fiction' ?", "reponses": ["Steven Spielberg", "Martin Scorsese", "Quentin Tarantino"], "bonneReponse": "Quentin Tarantino"},
+        {"question": "Quel est le nom du plombier moustachu de Nintendo ?", "reponses": ["Luigi", "Wario", "Mario"], "bonneReponse": "Mario"},
+        {"question": "Dans la saga 'Matrix', quelle pilule Neo choisit-il ?", "reponses": ["La pilule rouge", "La pilule bleue", "La pilule verte"], "bonneReponse": "La pilule rouge"},
+        {"question": "Qui est l'auteur de la saga 'Le Seigneur des Anneaux' ?", "reponses": ["J.K. Rowling", "George R.R. Martin", "J.R.R. Tolkien"], "bonneReponse": "J.R.R. Tolkien"},
+        {"question": "Quel super-héros Marvel peut rétrécir à la taille d'une fourmi ?", "reponses": ["Spider-Man", "Ant-Man", "Hulk"], "bonneReponse": "Ant-Man"}
+      ]
+    },
+    {
+      "nom": "Cinéma & Séries", "type": "classique", "description": "Trouvez la bonne réponse.",
+      "questions": [
+        {"question": "Quel film a remporté l'Oscar du meilleur film en 2020 ?", "reponses": ["1917", "Joker", "Parasite"], "bonneReponse": "Parasite"},
+        {"question": "Dans la série 'Breaking Bad', quel est le pseudonyme de Walter White ?", "reponses": ["Jesse", "Gus", "Heisenberg"], "bonneReponse": "Heisenberg"},
+        {"question": "Qui a réalisé le film 'Avatar' ?", "reponses": ["James Cameron", "George Lucas", "Ridley Scott"], "bonneReponse": "James Cameron"},
+        {"question": "Quel personnage est le capitaine du Black Pearl dans 'Pirates des Caraïbes' ?", "reponses": ["Will Turner", "Davy Jones", "Jack Sparrow"], "bonneReponse": "Jack Sparrow"},
+        {"question": "Quelle série suit les aventures de six amis vivant à New York ?", "reponses": ["How I Met Your Mother", "Friends", "The Big Bang Theory"], "bonneReponse": "Friends"},
+        {"question": "Dans 'Le Roi Lion', quel est le nom du père de Simba ?", "reponses": ["Scar", "Zazu", "Mufasa"], "bonneReponse": "Mufasa"},
+        {"question": "Quel acteur joue le Joker dans le film 'The Dark Knight' ?", "reponses": ["Jack Nicholson", "Joaquin Phoenix", "Heath Ledger"], "bonneReponse": "Heath Ledger"},
+        {"question": "De quelle couleur est le sabre laser de Mace Windu ?", "reponses": ["Vert", "Violet", "Bleu"], "bonneReponse": "Violet"},
+        {"question": "Dans la série 'La Casa de Papel', quel est le nom du chef du groupe ?", "reponses": ["Berlin", "Le Professeur", "Tokyo"], "bonneReponse": "Le Professeur"},
+        {"question": "Quel est le premier film du Marvel Cinematic Universe (MCU) ?", "reponses": ["Captain America", "Iron Man", "Thor"], "bonneReponse": "Iron Man"}
+      ]
+    },
+    {
+      "nom": "Science & Nature", "type": "classique", "description": "Trouvez la bonne réponse.",
+      "questions": [
+        {"question": "Quelle est la planète la plus proche du Soleil ?", "reponses": ["Vénus", "Mercure", "Mars"], "bonneReponse": "Mercure"},
+        {"question": "Quel est le symbole chimique de l'eau ?", "reponses": ["O2", "CO2", "H2O"], "bonneReponse": "H2O"},
+        {"question": "Quel est le plus grand mammifère terrestre ?", "reponses": ["L'éléphant d'Afrique", "La girafe", "Le rhinocéros blanc"], "bonneReponse": "L'éléphant d'Afrique"},
+        {"question": "Par quel processus les plantes se nourrissent-elles de lumière ?", "reponses": ["La respiration", "La photosynthèse", "L'osmose"], "bonneReponse": "La photosynthèse"},
+        {"question": "Combien y a-t-il de continents sur Terre ?", "reponses": ["5", "6", "7"], "bonneReponse": "7"},
+        {"question": "Quel est l'os le plus long du corps humain ?", "reponses": ["Le tibia", "Le fémur", "L'humérus"], "bonneReponse": "Le fémur"},
+        {"question": "Quel est le métal le plus léger ?", "reponses": ["L'aluminium", "Le titane", "Le lithium"], "bonneReponse": "Le lithium"},
+        {"question": "Quel est le gaz le plus abondant dans l'atmosphère terrestre ?", "reponses": ["L'oxygène", "L'azote", "Le dioxyde de carbone"], "bonneReponse": "L'azote"},
+        {"question": "Quelle force maintient les planètes en orbite autour du Soleil ?", "reponses": ["La force magnétique", "La gravité", "La force nucléaire"], "bonneReponse": "La gravité"},
+        {"question": "Quel animal est connu pour ne jamais dormir complètement ?", "reponses": ["Le hibou", "Le dauphin", "Le paresseux"], "bonneReponse": "Le dauphin"}
+      ]
+    }
+  ]
+}
