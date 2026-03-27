@@ -1,19 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
-
-const TIMER_DURATION = 20; // secondes par question
+ 
+const TIMER_DURATION = 20;
 const LETTERS = ['A', 'B', 'C', 'D'];
-
-// Composant timer circulaire SVG
+ 
 function TimerRing({ timeLeft, total }) {
   const radius = 22;
   const circumference = 2 * Math.PI * radius;
   const progress = timeLeft / total;
   const offset = circumference * (1 - progress);
-
+ 
   let color = 'var(--cyan)';
   if (progress < 0.5) color = 'var(--yellow)';
   if (progress < 0.25) color = 'var(--pink)';
-
+ 
   return (
     <div className="timer-ring">
       <svg width="54" height="54" viewBox="0 0 54 54">
@@ -30,32 +29,42 @@ function TimerRing({ timeLeft, total }) {
     </div>
   );
 }
-
+ 
 function QuizScreen({ question, roundResult, onSubmitAnswer, gameState, currentPlayerPseudo }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isWaiting, setIsWaiting] = useState(false);
   const [timeLeft, setTimeLeft] = useState(TIMER_DURATION);
+ 
+  // ✅ State local pour les scores — initialisé depuis gameState
+  const [scores, setScores] = useState(
+    gameState?.players.map(p => ({ pseudo: p.pseudo, score: p.score })) || []
+  );
+ 
   const timerRef = useRef(null);
-
+ 
+  // ✅ Mise à jour des scores à chaque résultat de round
+  useEffect(() => {
+    if (roundResult?.scores) setScores(roundResult.scores);
+  }, [roundResult]);
+ 
   // Reset à chaque nouvelle question
   useEffect(() => {
     setSelectedAnswer(null);
     setIsWaiting(false);
     setTimeLeft(TIMER_DURATION);
   }, [question]);
-
+ 
   // Timer countdown
   useEffect(() => {
     if (!question || roundResult || isWaiting) {
       clearInterval(timerRef.current);
       return;
     }
-
+ 
     timerRef.current = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) {
           clearInterval(timerRef.current);
-          // Temps écoulé : soumettre une réponse vide pour ne pas bloquer
           if (!isWaiting) {
             setIsWaiting(true);
             onSubmitAnswer('__timeout__');
@@ -65,10 +74,10 @@ function QuizScreen({ question, roundResult, onSubmitAnswer, gameState, currentP
         return prev - 1;
       });
     }, 1000);
-
+ 
     return () => clearInterval(timerRef.current);
   }, [question, roundResult, isWaiting, onSubmitAnswer]);
-
+ 
   const handleAnswerClick = (answer) => {
     if (isWaiting || roundResult) return;
     clearInterval(timerRef.current);
@@ -76,18 +85,17 @@ function QuizScreen({ question, roundResult, onSubmitAnswer, gameState, currentP
     setIsWaiting(true);
     onSubmitAnswer(answer);
   };
-
+ 
   const totalQuestions = gameState?.questions?.length || 10;
   const currentIndex = gameState?.currentQuestionIndex ?? 0;
-  const progressPercent = ((currentIndex) / totalQuestions) * 100;
-
-  // Header devinette
+  const progressPercent = (currentIndex / totalQuestions) * 100;
+ 
   const renderDevinetteHeader = () => {
     const answererIndex = currentIndex % 2;
     const guesserIndex = (currentIndex + 1) % 2;
     const answerer = gameState.players[answererIndex];
     const guesser = gameState.players[guesserIndex];
-
+ 
     if (guesser.pseudo === currentPlayerPseudo) {
       return (
         <div className="guesser-info">
@@ -101,8 +109,8 @@ function QuizScreen({ question, roundResult, onSubmitAnswer, gameState, currentP
       </div>
     );
   };
-
-  // Vue résultat
+ 
+  // ── VUE RÉSULTAT ──
   if (roundResult) {
     const renderBadge = () => {
       if (gameState.categoryType === 'devinette') {
@@ -121,15 +129,13 @@ function QuizScreen({ question, roundResult, onSubmitAnswer, gameState, currentP
         return <span className="result-badge neutral">Personne n'a trouvé</span>;
       }
     };
-
+ 
     const renderResult = () => {
       if (gameState.categoryType === 'devinette') {
         return (
-          <>
-            <div className="result-title">
-              {roundResult.wasMatch ? 'Même réponse !' : 'Pas pareil !'}
-            </div>
-          </>
+          <div className="result-title">
+            {roundResult.wasMatch ? 'Même réponse !' : 'Pas pareil !'}
+          </div>
         );
       }
       if (gameState.categoryType === 'classique') {
@@ -145,12 +151,12 @@ function QuizScreen({ question, roundResult, onSubmitAnswer, gameState, currentP
         );
       }
     };
-
+ 
     return (
       <div className="quiz-container result-view">
         {renderBadge()}
         {renderResult()}
-
+ 
         <div className="answers-recap">
           {Object.entries(roundResult.answers).map(([p, answer]) => (
             answer !== '__timeout__' && (
@@ -161,59 +167,53 @@ function QuizScreen({ question, roundResult, onSubmitAnswer, gameState, currentP
             )
           ))}
         </div>
-
-        {/* Scores mis à jour */}
+ 
+        {/* ✅ Scores depuis le state local — toujours à jour */}
         <div className="scores-bar">
-          {roundResult.scores.map(p => (
+          {scores.map(p => (
             <div key={p.pseudo} className={`score-chip ${p.pseudo === currentPlayerPseudo ? 'me' : ''}`}>
               <div className="score-chip-name">{p.pseudo}</div>
               <div className="score-chip-value">{p.score}</div>
             </div>
           ))}
         </div>
-
+ 
         <p className="next-label">⏭ Prochaine question...</p>
       </div>
     );
   }
-
+ 
   if (!question) return <div>Chargement...</div>;
-
+ 
+  // ── VUE QUESTION ──
   return (
     <div className="quiz-container">
-      {/* Barre de progression */}
       <div className="quiz-header">
-        <span className="question-counter">
-          Question {currentIndex + 1} / {totalQuestions}
-        </span>
+        <span className="question-counter">Question {currentIndex + 1} / {totalQuestions}</span>
         <span className="question-counter">{gameState.categoryName}</span>
       </div>
       <div className="progress-bar-wrap">
         <div className="progress-bar-fill" style={{ width: `${progressPercent}%` }} />
       </div>
-
-      {/* Scores */}
+ 
+      {/* ✅ Scores depuis le state local — mis à jour après chaque round */}
       <div className="scores-bar">
-        {gameState.players.map(p => (
+        {scores.map(p => (
           <div key={p.pseudo} className={`score-chip ${p.pseudo === currentPlayerPseudo ? 'me' : ''}`}>
             <div className="score-chip-name">{p.pseudo}</div>
             <div className="score-chip-value">{p.score}</div>
           </div>
         ))}
       </div>
-
-      {/* Header devinette */}
+ 
       {gameState.categoryType === 'devinette' && renderDevinetteHeader()}
-
-      {/* Timer */}
+ 
       <div className="timer-wrap">
         <TimerRing timeLeft={timeLeft} total={TIMER_DURATION} />
       </div>
-
-      {/* Question */}
+ 
       <p className="question-text">{question.question}</p>
-
-      {/* Réponses */}
+ 
       <div className="answers-grid">
         {question.reponses.map((reponse, index) => (
           <button
@@ -227,7 +227,7 @@ function QuizScreen({ question, roundResult, onSubmitAnswer, gameState, currentP
           </button>
         ))}
       </div>
-
+ 
       {isWaiting && (
         <p className="waiting-message">
           En attente de l'autre joueur
@@ -237,5 +237,5 @@ function QuizScreen({ question, roundResult, onSubmitAnswer, gameState, currentP
     </div>
   );
 }
-
+ 
 export default QuizScreen;
